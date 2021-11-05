@@ -27,7 +27,7 @@ spec:
       serviceAccountName: sa-trainer
       containers:
       - name: anomaly
-        image: gcr.io/virtual-anomaly/sklearn_isolation_forest:v1
+        image: gcr.io/virtual-anomaly/trainer
         env:
           - name: TRAIN_FEATURE_PATH
             # Update below to change the input location
