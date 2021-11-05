@@ -22,7 +22,7 @@ steps:
 - name: "gcr.io/cloud-builders/gke-deploy"
   args:
   - run
-  - --filename=sklearn_deploy/training/model_trainer_job.yaml
+  - --filename=sklearn_deploy/training/k8s_job_training.yaml
   - --location=us-central1-b
   - --cluster=training-cluster-beta
 # Location of the container

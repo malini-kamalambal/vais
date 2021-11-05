@@ -29,4 +29,4 @@ WORKDIR /
 # Copies the trainer code to the docker image.
 COPY sklearn_deploy/training/trainer/train.py /trainer
 # Sets up the entry point to invoke the trainer.
-ENTRYPOINT ["python", "-m", "trainer.train"]
+ENTRYPOINT ["python", "-m", "training.trainer.train"]
