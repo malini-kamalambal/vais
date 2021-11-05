@@ -1,3 +1,4 @@
+# ==========================================================================
 # Copyright 2021 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -11,6 +12,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+# ==========================================================================
 
 FROM gcr.io/deeplearning-platform-release/tf2-cpu.2-3
 WORKDIR /root
@@ -25,6 +27,6 @@ WORKDIR /
 #RUN pip install -r requirements.txt
 
 # Copies the trainer code to the docker image.
-COPY sklearn_deploy/trainer /trainer
+COPY sklearn_deploy/training/train.py /trainer
 # Sets up the entry point to invoke the trainer.
 ENTRYPOINT ["python", "-m", "trainer.train"]
