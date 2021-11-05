@@ -26,7 +26,8 @@ WORKDIR /
 #   file to match your needs
 #RUN pip install -r requirements.txt
 
+RUN mkdir /trainer
 # Copies the trainer code to the docker image.
-COPY sklearn_deploy/training/trainer/ /training/trainer
+COPY sklearn_deploy/training/trainer/ /trainer
 # Sets up the entry point to invoke the trainer.
-ENTRYPOINT ["python", "-m", "training.trainer.train"]
+ENTRYPOINT ["python", "-m", "trainer.train"]
