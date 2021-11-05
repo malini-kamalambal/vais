@@ -16,13 +16,13 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: trainer-job
+  name: trainer-job-alpha
 spec:
   activeDeadlineSeconds: 1800
   ttlSecondsAfterFinished: 1800
   template:
     metadata:
-      name: train-anomaly-alpha
+      name: trainer-job-alpha
     spec:
       serviceAccountName: sa-trainer
       containers:
