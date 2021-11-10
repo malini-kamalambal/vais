@@ -1,0 +1,15 @@
+apiVersion: skaffold/v2beta25
+kind: Config
+metadata:
+  name: prediction
+build:
+  artifacts:
+  - image: gcr.io/virtual-anomaly/predictor
+    docker:
+      dockerfile: Dockerfile
+deploy:
+  kubectl:
+    manifests:
+    - k8s_job_prediction.yaml
+    # - prediction_pipeline.yaml
+    # - training_cluster_beta.yaml
