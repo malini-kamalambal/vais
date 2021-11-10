@@ -34,7 +34,8 @@ spec:
             value: "gs://virtual-anomaly-vertex-ai/sklearn_models_data/isolation_forest/train/train.csv"
           - name: JOB_DIR
             # Update below to change the output location
-            value: "gs://virtual-anomaly-vertex-ai/sklearn_models/custom_container_isolation_forest_101521_0915"
+            value: "gs://prediction_mk/training_model"
+            # value: "gs://virtual-anomaly-vertex-ai/sklearn_models/custom_container_isolation_forest_101521_0915"
         args: ["--input=$(TRAIN_FEATURE_PATH)", "--job-dir=$(JOB_DIR)"]
       restartPolicy: Never
   backoffLimit: 2

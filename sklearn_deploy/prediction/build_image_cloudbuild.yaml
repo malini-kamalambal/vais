@@ -18,18 +18,5 @@ steps:
 # Build Container step
 - name: 'gcr.io/cloud-builders/docker'
   args: [ 'build', '-t', 'gcr.io/virtual-anomaly/predictor', '--file=./Dockerfile', '.' ]
-# Deploy to GKE step
-- name: "gcr.io/cloud-builders/gke-deploy"
-  args:
-  - run
-  - --filename=./k8s_job_prediction.yaml
-  - --location=us-central1-b
-  - --cluster=training-cluster-beta
 # Location of the container
 images: ['gcr.io/virtual-anomaly/predictor']
-
-...
-# deploy container image to GKE
-
-#- name: 'gcr.io/cloud-builders/docker-push'
-#  args: ['push', 'gcr.io/virtual-anomaly/sklearn_isolation_forest_training:v2']

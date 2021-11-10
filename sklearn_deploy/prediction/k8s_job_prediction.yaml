@@ -33,8 +33,8 @@ spec:
             value: "gs://virtual-anomaly-vertex-ai/sklearn_models_data/isolation_forest/test/test.csv"
           - name: ARTIFACT_URI
             # Update below to change the input location for the model file, in this case expecting a file model.joblib in the folder
-            #            virtual-anomaly-vertex-ai/sklearn_models/custom_container_isolation_forest_101521_0915
-            value: "gs://virtual-anomaly-vertex-ai/sklearn_models/custom_container_isolation_forest_101521_0915"
+            value: "gs://prediction_mk/training_model"
+            # value: "gs://virtual-anomaly-vertex-ai/sklearn_models/custom_container_isolation_forest_101521_0915"
           - name: GCS_DESTINATION_PREFIX
             # Update below to change the output location to save predictions as a CSV file
             value: "gs://virtual-anomaly-vertex-ai/sklearn_models_data/isolation_forest/batch/output/test"
