@@ -19,7 +19,7 @@ steps:
 - name: "gcr.io/cloud-builders/gke-deploy"
   args:
   - run
-  - --filename=./k8s_job_prediction.yaml
+  - --filename=sklearn_deploy/prediction/k8s_job_prediction.yaml
   - --location=us-central1-b
   - --cluster=training-cluster-beta
 
