@@ -17,7 +17,7 @@
 steps:
 # Build Container step
 - name: 'gcr.io/cloud-builders/docker'
-  args: [ 'build', '-t', 'us-east1-docker.pkg.dev/virtual-anomaly/prediction/predictor', '--file=./Dockerfile', '.' ]
+  args: [ 'build', '-t', 'us-east1-docker.pkg.dev/virtual-anomaly/prediction/predictor', '--file=sklearn_deploy/prediction/Dockerfile', '.' ]
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'us-east1-docker.pkg.dev/virtual-anomaly/prediction/predictor']
 # Deploy to GKE step
