@@ -27,7 +27,8 @@ spec:
       serviceAccountName: sa-trainer
       containers:
       - name: anomaly
-        image: gcr.io/virtual-anomaly/trainer
+        # image: gcr.io/virtual-anomaly/trainer
+        image: us-east1-docker.pkg.dev/virtual-anomaly/training/trainer
         env:
           - name: TRAIN_FEATURE_PATH
             # Update below to change the input location
