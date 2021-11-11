@@ -18,6 +18,8 @@ steps:
 # Build Container step
 - name: 'gcr.io/cloud-builders/docker'
   args: [ 'build', '-t', 'us-east1-docker.pkg.dev/virtual-anomaly/training/trainer', '--file=sklearn_deploy/training/Dockerfile', '.' ]
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'us-east1-docker.pkg.dev/virtual-anomaly/training/trainer']
   # args: [ 'build', '-t', 'gcr.io/virtual-anomaly/trainer', '--file=sklearn_deploy/training/Dockerfile', '.' ]
 # Location of the container
 # Deploy to GKE step
