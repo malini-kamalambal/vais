@@ -28,3 +28,4 @@ steps:
   - --location=us-central1-b
   - --cluster=training-cluster-beta
 images: ['us-east1-docker.pkg.dev/virtual-anomaly/prediction/predictor']
+timeout: 1200s
