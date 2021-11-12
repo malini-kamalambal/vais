@@ -27,4 +27,4 @@ steps:
   - --filename=sklearn_deploy/prediction/k8s_job_prediction.yaml
   - --location=us-central1-b
   - --cluster=training-cluster-beta
-# images: ['us-east1-docker.pkg.dev/virtual-anomaly/prediction/predictor']
+images: ['us-east1-docker.pkg.dev/virtual-anomaly/prediction/predictor']
