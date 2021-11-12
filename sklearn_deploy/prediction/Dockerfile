@@ -27,7 +27,7 @@ WORKDIR /
 RUN mkdir prediction
 
 # Copies the trainer code to the docker image.
-COPY predict/ /prediction
+COPY sklearn_deploy/prediction/predict/ /prediction
 
 # Sets up the entry point to invoke the trainer.
 ENTRYPOINT ["python", "-m", "prediction.predict"]
