@@ -26,7 +26,7 @@ spec:
       serviceAccountName: sa-trainer
       containers:
       - name: anomaly
-        image: gcr.io/virtual-anomaly/predictor
+        image: us-east1-docker.pkg.dev/virtual-anomaly/prediction/predictor
         env:
           - name: DATA_PATH
             # Update below to change the input location for a CSV to load for predictions
