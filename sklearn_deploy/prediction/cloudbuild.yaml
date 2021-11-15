@@ -27,5 +27,6 @@ steps:
   - --filename=sklearn_deploy/prediction/k8s_job_prediction.yaml
   - --location=us-central1-b
   - --cluster=training-cluster-beta
+# Image location
 images: ['us-east1-docker.pkg.dev/virtual-anomaly/prediction/predictor']
 timeout: 1200s

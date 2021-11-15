@@ -35,3 +35,9 @@ gsutil notification create -t training-new-input-dataset -f json -e OBJECT_FINAL
 # on-demand-run
 
  curl -X POST -H "application/json" "https://cloudbuild.googleapis.com/v1/projects/virtual-anomaly/triggers/prediction-on-demand:webhook?key=XXXXX&secret=XXXX" -d "{}"
+
+
+# New dataset or training artifact
+
+gsutil notification create -t prediction-new-datatset-artifact -f json -e OBJECT_FINALIZE gs://prediction_mk
+

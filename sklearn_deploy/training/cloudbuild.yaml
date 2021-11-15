@@ -21,7 +21,6 @@ steps:
   # args: [ 'build', '-t', 'gcr.io/virtual-anomaly/trainer', '--file=sklearn_deploy/training/Dockerfile', '.' ]
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'us-east1-docker.pkg.dev/virtual-anomaly/training/trainer']
-# Location of the container
 # Deploy to GKE step
 - name: "gcr.io/cloud-builders/gke-deploy"
   args:
@@ -29,10 +28,5 @@ steps:
   - --filename=sklearn_deploy/training/k8s_job_training.yaml
   - --location=us-central1-b
   - --cluster=training-cluster-beta
+# Location of the container image
 images: ['us-east1-docker.pkg.dev/virtual-anomaly/training/trainer']
-
-...
-# deploy container image to GKE
-
-#- name: 'gcr.io/cloud-builders/docker-push'
-#  args: ['push', 'gcr.io/virtual-anomaly/sklearn_isolation_forest_training:v2']
