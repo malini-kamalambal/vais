@@ -1,0 +1,43 @@
+ # Copyright 2021 Google LLC
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+# ==============================================================================
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: prediction-job-alpha
+spec:
+  ttlSecondsAfterFinished: 1800
+  activeDeadlineSeconds: 1800
+  template:
+    metadata:
+      name: prediction-job-alpha
+    spec:
+      serviceAccountName: sa-trainer
+      containers:
+      - name: anomaly
+        image: us-east1-docker.pkg.dev/virtual-anomaly/prediction/predictor
+        env:
+          - name: DATA_PATH
+            # Update below to change the input location for a CSV to load for predictions
+            value: "gs://virtual-anomaly-vertex-ai/sklearn_models_data/isolation_forest/test/test.csv"
+          - name: ARTIFACT_URI
+            # Update below to change the input location for the model file, in this case expecting a file model.joblib in the folder
+            value: "gs://prediction_mk/training_model"
+            # value: "gs://virtual-anomaly-vertex-ai/sklearn_models/custom_container_isolation_forest_101521_0915"
+          - name: GCS_DESTINATION_PREFIX
+            # Update below to change the output location to save predictions as a CSV file
+            value: "gs://virtual-anomaly-vertex-ai/sklearn_models_data/isolation_forest/batch/output/test"
+        args: ["--input=$(DATA_PATH)", "--artifact-uri=$(ARTIFACT_URI)", "--gcs-destination-prefix=$(GCS_DESTINATION_PREFIX)"]
+      restartPolicy: Never
+  backoffLimit: 2
